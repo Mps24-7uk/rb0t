@@ -46,9 +46,9 @@ class Match_Input_Output(Resource):
 			item.output=ItemModel.predict_result(data['input'])
 			item.save_to_db()
 		except:
-			item.output="None"
+			item.output="2"
 			item.save_to_db()
-			return {"message":"Model is not trained on this value"},500 # internal server errror
+			return item.json(),201
 			
 		return item.json(),201  # Create
 					
