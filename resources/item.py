@@ -52,6 +52,8 @@ class Match_Input_Output(Resource):
 			
 		return item.json(),201  # Create
 					
+	def get(self):
+		return {'items':[item.json() for item in ItemModel.query.all()]}		
 	
 	
 class ItemList(Resource):	
